@@ -1,0 +1,29 @@
+* Implementation Notes for AOC2020
+
+** Day 1
+
+*** Part 1
+ I struggled to create a 2d matrix of pairs, but realized that I do not actually need both the elements. I just need their product.
+ #+begin_src gnu-apl
+   a←1721 979 366 299 675 1456
+   a1←a∘.+a ⍝a1 has sums
+   a2←a∘.×a ⍝a2 has product
+   (2020=∊a1)/∊a2
+ #+end_src
+
+ I also took a lot of time to figure out I/O ~⎕FIO~ and string->number conversion with ~⍎~ and even more to combine them. Here is the whole process
+ #+begin_src gnu-apl
+   a←⍎⎕FIO[49]'inputs/day1'
+   a1←a∘.+a
+   a2←a∘.×a
+   (2020=∊a1)/∊a2
+ #+end_src
+*** Part 2
+ The simple combinatorial explosion below, that worked till now is not working for the input
+ #+begin_src gnu-apl
+   a←1721 979 366 299 675 1456
+   as←a∘.+a∘.+a
+   am←a∘.×a∘.×a
+   (2020=∊as)/(∊am)
+ #+end_src
+ /GNU APL/ is complaining about a ~WS FULL+~ error. So now I need to get smart. Sorting and constraints?
