@@ -1,6 +1,6 @@
 * Implementation Notes for AOC2020
 
-** Day 1
+** TODO Day 1
 
 *** Part 1
  I struggled to create a 2d matrix of pairs, but realized that I do not actually need both the elements. I just need their product.
@@ -18,7 +18,7 @@
    a2←a∘.×a
    (2020=∊a1)/∊a2
  #+end_src
-*** Part 2
+*** TODO Part 2
  The simple combinatorial explosion below, that worked till now is not working for the input
  #+begin_src gnu-apl
    a←1721 979 366 299 675 1456
@@ -27,3 +27,34 @@
    (2020=∊as)/(∊am)
  #+end_src
  /GNU APL/ is complaining about a ~WS FULL+~ error. So now I need to get smart. Sorting and constraints?
+Finally realized out that a nested vector is different from a martix.
+
+~]help~ is very useful to see what each command does.
+Finally found out the map function ~¨~ mapped to ~.1~. The following is a more optimized version of the above process.
+#+begin_src gnu-apl
+  ∇λ←⍺ isE ⍵
+    λ←∧⌿(⍺=⍵)
+  ∇
+  n2←({~(⍵ isE 0 0)} ¨ n1)/1n
+  {2020-((+⌿)¨⍵)}n2 ⍝ This has the amount missing for each pair.
+  ⍝ If I can find that in n, then we have a triple that sums to 2020
+#+end_src
+
+** DONE Day 2
+   CLOSED: [2020-12-02 Wed 22:20]
+*** DONE Part1
+    CLOSED: [2020-12-02 Wed 22:07]
+Parsing the input file is very weird. ~FIO[48]~ fscanf is working, but ~FIO[55]~ sscanf is not working as expected. I am going to parse this using sublists.
+- Find the indices of the delimiters.
+- Find the sub-strings between I1 and I2 using ~I1↓⍳I2~.
+- Clean up the numbers
+
+Finally found while ~⍣~ loops, user-defined functions, and working with files.
+#+begin_src gnu-apl
+  )LOAD day2.apl
+  a← {Valid ParseLine ⍵} ⎕FIO[49]'inputs/day2'
+  +/a ⍝ count all valid inputs
+#+end_src
+*** DONE Part2
+    CLOSED: [2020-12-02 Wed 22:20]
+Just replace ~Valid~ with ~Valid1~ in previous solution and we get the answer.
