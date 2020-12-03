@@ -44,7 +44,7 @@ Finally found out the map function ~¨~ mapped to ~.1~. The following is a more 
    CLOSED: [2020-12-02 Wed 22:20]
 *** DONE Part1
     CLOSED: [2020-12-02 Wed 22:07]
-Parsing the input file is very weird. ~FIO[48]~ fscanf is working, but ~FIO[55]~ sscanf is not working as expected. I am going to parse this using sublists.
+Parsing the input file is very weird. ~FIO[48]~ fscanf is working, but ~FIO[55]~ ~sscanf~ is not working as expected. I am going to parse this using sublists.
 - Find the indices of the delimiters.
 - Find the sub-strings between I1 and I2 using ~I1↓⍳I2~.
 - Clean up the numbers
@@ -58,3 +58,11 @@ Finally found while ~⍣~ loops, user-defined functions, and working with files.
 *** DONE Part2
     CLOSED: [2020-12-02 Wed 22:20]
 Just replace ~Valid~ with ~Valid1~ in previous solution and we get the answer.
+** Day 3
+Finally figured out how ~⊃~ ~Disclose~ to work with nested vectors.
+#+begin_src gnu-apl
+  ⍝ Part 1
+  'inputs/day3' findTrees 1 3 ⍝ I some how confused the x-y-order
+  ⍝ Part 2
+  part2 'inputs/day3'
+#+end_src

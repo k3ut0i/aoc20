@@ -7,7 +7,7 @@
 ∇
 
 ∇r←ParseLine l
-  Is←{(⍵∊' -:')/⍳⍴⍵}l
+  Is←{(⍵∊' -:')/⍳⍴⍵}l ⍝ does ⍸l∊' -:' work?
   A1←l Sub ¯1 Is[0]
   A2←l Sub Is[0] Is[1]
   A3←l Sub Is[1] Is[2]
@@ -24,4 +24,5 @@
   char1←(↑c[3])[c[0]-1]
   char2←(↑c[3])[c[1]-1]
   r←2|(char1=c[2])+(char2=c[2])
+  ⍝ This could work? r←2|+/(c[2]=(↑c[3])[c[0,1]-1])
 ∇
