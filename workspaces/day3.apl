@@ -1,3 +1,5 @@
+#!/usr/bin/apl
+
 ⎕IO←0
 
 ∇r←readMaze filename

@@ -33,11 +33,15 @@ Finally realized out that a nested vector is different from a martix.
 Finally found out the map function ~¨~ mapped to ~.1~. The following is a more optimized version of the above process.
 #+begin_src gnu-apl
   ∇λ←⍺ isE ⍵
-    λ←∧⌿(⍺=⍵)
+    λ←∧⌿(⍺=⍵) ⍝ ≡ ?
   ∇
   n2←({~(⍵ isE 0 0)} ¨ n1)/1n
   {2020-((+⌿)¨⍵)}n2 ⍝ This has the amount missing for each pair.
   ⍝ If I can find that in n, then we have a triple that sums to 2020
+#+end_src
+
+#+begin_src ess-julia
+  [1, 2, 3] .^ 3
 #+end_src
 
 ** DONE Day 2
@@ -65,4 +69,10 @@ Finally figured out how ~⊃~ ~Disclose~ to work with nested vectors.
   'inputs/day3' findTrees 1 3 ⍝ I some how confused the x-y-order
   ⍝ Part 2
   part2 'inputs/day3'
+#+end_src
+** Day 4
+In Julia
+#+begin_src julia
+  reduce(+, map(is_valid, parseinputs("inputs/day4"))), # part 1
+  reduce(+, map(is_valid2, map(get_data, parseinputs("inputs/day4")))) # part 2
 #+end_src

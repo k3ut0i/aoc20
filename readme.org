@@ -1,3 +1,2 @@
 * Advent of Code 2020
-Learning *APL*, by just jumping head first(no parachute).
-- Org-babel is not working with APL. I need to check for any packages out there. How difficult is to write one?
+Learning *Julia* after dropping *APL*
