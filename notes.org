@@ -1,6 +1,7 @@
 * Implementation Notes for AOC2020
 
-** TODO Day 1
+** DONE Day 1
+   CLOSED: [2020-12-04 Fri 15:53]
 
 *** Part 1
  I struggled to create a 2d matrix of pairs, but realized that I do not actually need both the elements. I just need their product.
@@ -18,7 +19,8 @@
    a2←a∘.×a
    (2020=∊a1)/∊a2
  #+end_src
-*** TODO Part 2
+*** DONE Part 2
+    CLOSED: [2020-12-04 Fri 15:53]
  The simple combinatorial explosion below, that worked till now is not working for the input
  #+begin_src gnu-apl
    a←1721 979 366 299 675 1456
@@ -39,9 +41,10 @@ Finally found out the map function ~¨~ mapped to ~.1~. The following is a more 
   {2020-((+⌿)¨⍵)}n2 ⍝ This has the amount missing for each pair.
   ⍝ If I can find that in n, then we have a triple that sums to 2020
 #+end_src
-
-#+begin_src ess-julia
-  [1, 2, 3] .^ 3
+Rewrote the whole thing in Julia
+#+begin_src julia
+  search_pair(readnums("inputs/day1"))
+  search_triple(readnums("inputs/day1"))
 #+end_src
 
 ** DONE Day 2
