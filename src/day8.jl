@@ -70,15 +70,15 @@ end
 
 function try_all(program)
     len = length(program)
-    _, _, ip_list = run_instructions_once(program)
+    _, _, ip_list = run_instructions_once(program) # get execution path
     for idx in ip_list
-        flip_at(idx, program)
+        flip_at(idx, program) # I should've just skiped ~acc~ ops 
         acc, ip, _ = run_instructions_once(program)
         print(acc, ";", ip, "\n")
-        if ip > len
+        if ip > len # check if it executed completely
             return acc
         else
-            flip_at(idx, program)
+            flip_at(idx, program) #restore original
         end
     end
 end

@@ -1,6 +1,8 @@
+"Change names of the bag"
 function re_s(str)
     replace(str, ' '=> '_')
 end
+
 function parseline(str)
     m = match(r"(.*) bags contain (.*)\.", str)
     bag = m.captures[1]
@@ -33,6 +35,21 @@ function draw_rules(infile, outfile)
             end
         end
         write(io, "}\n")
+    end
+end
+
+function write_rules_prolog(infile, outfile)
+    rs = get_rules(infile)
+    open(outfile, "w") do io
+        for (bag, contents) in pairs(rs)
+            if contents !== nothing
+                for (bagC, num) in pairs(contents)
+                    write(io, "contains(", bag, ", ", bagC, ", ")
+                    show(io, num)
+                    write(io, ").\n")
+                end
+            end
+        end
     end
 end
 
@@ -75,7 +92,7 @@ function flesh_rule(bag, rules)
     if rules[bag] !== nothing
         for (bagC, num) in pairs(rules[bag])
             if rules[bagC] !== nothing
-                mergewith!((a, b) -> a + num * b, rules[bag], rules[bagC])
+                mergewith!((a, b) -> a + num * b, rules[bag], rules[bagC]) # FIXME: This wont work
             end
         end
     end    

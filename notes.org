@@ -49,6 +49,7 @@ Rewrote the whole thing in Julia
 
 ** DONE Day 2
    CLOSED: [2020-12-02 Wed 22:20]
+Also done in Julia.
 *** DONE Part1
     CLOSED: [2020-12-02 Wed 22:07]
 Parsing the input file is very weird. ~FIO[48]~ fscanf is working, but ~FIO[55]~ ~sscanf~ is not working as expected. I am going to parse this using sublists.
@@ -89,7 +90,20 @@ I always stumble on graph algorithms. This is a conceptually simple depth first 
    count_rules_with(rs, "shiny_gold")
  #+end_src
 *** TODO Part 2
- I am not find a clear way to represent the recursive enclosure of the bags. Recursive ~Dict~'s look bad 
+ I am not find a clear way to represent the recursive enclosure of the bags. Recursive ~Dict~'s look bad.
+
+I am trying a ASP solution to this problem. First part works perfectly and the examples are working for the second part but my answer is wrong for the actual problem. I don't understand why?
+#+begin_src julia
+  write_rules_prolog("inputs/day7", "day7facts.prolog") # rewrite input as facts 
+#+end_src
+#+begin_src sh :session *day7* :results output verbatim
+  clingo -V0 day7facts.prolog src/day7.lp 
+#+end_src
+
+#+RESULTS:
+: bagsInShiny(16555) shinyInBags(128)
+: SATISFIABLE
+
 ** Day 8
 The first part is a simple simulation. I took too long for the second part on some misunderstood assumptions. Since the program itself does not change, we can simply take the execution path of the solution to part1 and try flipping the ~nop~ and ~jmp~ instructions and see if one such flip executes the program to the end.
 
