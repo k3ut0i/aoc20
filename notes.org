@@ -79,3 +79,17 @@ In Julia
   reduce(+, map(is_valid, parseinputs("inputs/day4"))), # part 1
   reduce(+, map(is_valid2, map(get_data, parseinputs("inputs/day4")))) # part 2
 #+end_src
+** Day 7
+I always stumble on graph algorithms. This is a conceptually simple depth first reduction algorithm. Parsing the input took less that 15min even with my unfamiliar regex and dict handling. What is required is literally the transitive closure of this directed acyclic graph. 
+*** Part 1
+ For the first part I set the *shiny gold* bag as and end point and rewrote the rules a few times. So since the depth is small enough after a few iterations all the bags that have *shiny gold* in them will have the entry in the rules. I counted them later.
+ #+begin_src julia
+   rs = get_rules("inputs/day7.jl")
+   rs["shiny_gold"] = nothing
+   count_rules_with(rs, "shiny_gold")
+ #+end_src
+*** TODO Part 2
+ I am not find a clear way to represent the recursive enclosure of the bags. Recursive ~Dict~'s look bad 
+** Day 8
+The first part is a simple simulation. I took too long for the second part on some misunderstood assumptions. Since the program itself does not change, we can simply take the execution path of the solution to part1 and try flipping the ~nop~ and ~jmp~ instructions and see if one such flip executes the program to the end.
+

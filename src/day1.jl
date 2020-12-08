@@ -26,7 +26,10 @@ function search_triple(c)
     pairs = reduce((a1, a2) -> cat(a1, a2, dims=1), pairs)
 
     pair_idx = findfirst(pairs) do (a1, a2)
-        findfirst(a3 -> 2020 == (a1+a2+a3), c) !== nothing
+        # findfirst(a3 -> 2020 == (a1+a2+a3), c) !== nothing
+        # c is sorted, I can use binary search. O(n^2log(n)) rather that O(n^3)
+        a3_idx = searchsortedfirst(c, 2020-(a1+a2))
+        2020 == a1 + a2 + c[a3_idx]
     end
     n1, n2 = pairs[pair_idx]
     *(n1, n2, (2020-(n1+n2)))
