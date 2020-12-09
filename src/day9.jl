@@ -3,7 +3,7 @@ function getnums(file)
 end
 
 function isvalidnum(num, preamble)
-    sp = sort(preamble)
+    sp = sort(preamble) #for small preamble the overhead might be too large
     findfirst(e -> length(searchsorted(sp, num - e)) !== 0, sp)
 end
 

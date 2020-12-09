@@ -8,6 +8,6 @@ shinyInBags(N) :- #count { X : sgIsIn(X) } = N.
 % Answer of part1
 #show shinyInBags/1.
 
-bagsInShiny(N) :- #sum { Count : isIn(A, shiny_gold, Count) } = N.
+bagsInShiny(N) :- #sum { Count, From : isIn(From, shiny_gold, Count) } = N.
 
 #show bagsInShiny/1.
