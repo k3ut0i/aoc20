@@ -97,12 +97,13 @@ I am trying a ASP solution to this problem. First part works perfectly and the e
   write_rules_prolog("inputs/day7", "day7facts.prolog") # rewrite input as facts 
 #+end_src
 
+Aggregates are computing from a set. So multiple elements are counted once and this gave me the wrong answer. If I generate tuples and then do aggregation then we have a correct answer
 #+begin_src sh :exports both :session *day7* :results output verbatim
   clingo -V0 day7facts.prolog src/day7.lp 
 #+end_src
 
 #+RESULTS:
-: bagsInShiny(16555) shinyInBags(128)
+: bagsInShiny(20189) shinyInBags(128)
 : SATISFIABLE
 
 The *almost* same prolog code gives me the correct solution
@@ -128,3 +129,10 @@ The first part is a simple simulation. I took too long for the second part on so
    #+RESULTS:
    : 2980044
 
+** Day10
+For the second part instead of just counting paths using dynamic programming, I tried to construct the paths and got my poor system stuck. The rest is straight forward.
+#+begin_src ess-julia
+  oneTimesThrees(difflist(readnums("inputs/day10"))) # part 1
+  ns = getadapts("inputs/day10")
+  possible_paths(length(ns), ns, Dict([])) # part 2
+#+end_src
