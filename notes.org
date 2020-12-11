@@ -136,3 +136,11 @@ For the second part instead of just counting paths using dynamic programming, I 
   ns = getadapts("inputs/day10")
   possible_paths(length(ns), ns, Dict([])) # part 2
 #+end_src
+
+** Day 11
+I took too long to get the neighbors for the second part of the problem.
+#+begin_src ess-julia
+  f = readfloor("inputs/day11")
+  step_until_no_changes(f, noOcc, 4)
+  step_until_no_changes(f, noOcc2, 5)
+#+end_src
