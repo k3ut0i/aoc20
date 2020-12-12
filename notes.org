@@ -144,3 +144,10 @@ I took too long to get the neighbors for the second part of the problem.
   step_until_no_changes(f, noOcc, 4)
   step_until_no_changes(f, noOcc2, 5)
 #+end_src
+
+** Day 12
+Simple travel simulation
+#+begin_src ess-julia
+  dirs = parsefile("inputs/day12")
+  travel(dirs), travel2(dirs)
+#+end_src
