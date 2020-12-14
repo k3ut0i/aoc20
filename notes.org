@@ -151,3 +151,13 @@ Simple travel simulation
   dirs = parsefile("inputs/day12")
   travel(dirs), travel2(dirs)
 #+end_src
+
+** Day 13
+
+** Day 14
+First day doing something non-trivial. For the set of all possible bitmasks, I wrote a powerset function in listutil module.
+
+#+begin_src ess-julia
+  run_program("inputs/day14", step_program),
+  run_program("inputs/day14", step_program2)
+#+end_src
