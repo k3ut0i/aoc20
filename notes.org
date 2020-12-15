@@ -161,3 +161,6 @@ First day doing something non-trivial. For the set of all possible bitmasks, I w
   run_program("inputs/day14", step_program),
   run_program("inputs/day14", step_program2)
 #+end_src
+
+** Day 15
+Got a bit stuck when boundary conditions of stepping met initialization. I had to stop initializing the last element and give the last element as previous num.
