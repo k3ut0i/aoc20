@@ -4,7 +4,7 @@ function init_seq(ls)
     ls[len], len+1, Dict(zip(butlast, (zip(1:len-1, ones(Int, len-1)))))
 end
 
-function step_seq(prev, stepnum, dict)
+function step_seq(prev, stepnum, dict) # dict is modified
     num, count = get(dict, prev, (stepnum-1, 0))
     if count == 0
         dict[prev] = stepnum - 1, 1

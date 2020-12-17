@@ -164,3 +164,8 @@ First day doing something non-trivial. For the set of all possible bitmasks, I w
 
 ** Day 15
 Got a bit stuck when boundary conditions of stepping met initialization. I had to stop initializing the last element and give the last element as previous num.
+
+** Day 16
+Wasted quite a bit of time trying out why constraint solving is not working when the bug was actually in initial parsing regex. Lesson learned here is to make the regex as restrictive as possible and start loosening it when it fails.
+
+I also wrote a good search in imperative(functional) style. Using ~sortperm~ to make the constraint solving more efficient is a good bonus.
