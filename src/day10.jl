@@ -35,7 +35,6 @@ function possible_paths(idx, nums, dict)
         return 1
     else
         prev = find_in_range(idx, nums)
-        prev_paths = reduce(+, map(p -> possible_paths(p, nums, dict), prev))
-        dict[idx] = prev_paths
+        dict[idx] = sum(p -> possible_paths(p, nums, dict), prev)
     end
 end

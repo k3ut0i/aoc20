@@ -169,3 +169,14 @@ Got a bit stuck when boundary conditions of stepping met initialization. I had t
 Wasted quite a bit of time trying out why constraint solving is not working when the bug was actually in initial parsing regex. Lesson learned here is to make the regex as restrictive as possible and start loosening it when it fails.
 
 I also wrote a good search in imperative(functional) style. Using ~sortperm~ to make the constraint solving more efficient is a good bonus.
+
+** Day 17
+Finally came across my pet peeve and a good use case for a macro. I am going to attempt my first macro with ~getneighbors~ which should be a simple expression interms of its inputs. This is not going to make my program much efficient as this part is not a bottleneck, but it is an expression which can be computed at compile time. So I think it is a good case for a macro.
+
+Well the macro did not workout. The rest of the simulation went as expected. Since the stepping part has not changed rules b/w part one and two, the second part also done quite fast. I just passed a function that gets neighbors and my modular implementation took care of everything.
+#+begin_src ess-julia
+  init = readinputs("inputs/day17")
+  part1ans = step_ntimes_active_count(init, 6)
+  init = readinputs("inputs/day17", dims=4)
+  part2ans = step_ntimes_active_count(init, 6, getn2)
+#+end_src
