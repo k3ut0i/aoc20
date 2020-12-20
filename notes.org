@@ -180,3 +180,12 @@ Well the macro did not workout. The rest of the simulation went as expected. Sin
   init = readinputs("inputs/day17", dims=4)
   part2ans = step_ntimes_active_count(init, 6, getn2)
 #+end_src
+
+** Day 18
+I am going to write a complete parser, rather than juggle with Julia's builtin Reflection libraries. Though I know how to solve this, I have always found it difficult write a procedural function to deal with recursive parsing methods. There was a time I tried to implement reverse polish notation and gave up. I am going to complete that too.
+
+** Day 20
+   #+begin_src ess-julia
+     x = readtiles("inputs/day20")
+     prod(collect(keys(x))[findcorners(x)])
+   #+end_src
