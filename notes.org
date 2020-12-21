@@ -189,3 +189,14 @@ I am going to write a complete parser, rather than juggle with Julia's builtin R
      x = readtiles("inputs/day20")
      prod(collect(keys(x))[findcorners(x)])
    #+end_src
+
+** Day 21
+The constraint solver is pretty simple, I would have struggled a lot if this was a more ambiguous constaint.
+#+begin_src ess-julia :session *day21* :results output verbatim
+  include(expanduser("~/projects/aoc20/src/day21.jl"))
+  dangerouslist(readinputs("inputs/day21"))
+#+end_src
+
+#+RESULTS:
+: dangerouslist (generic function with 1 method)
+: ",lmxt,rggkbpj,mxf,gpxmf,nmtzlj,dlkxsxg,fvqg,dxzq"
