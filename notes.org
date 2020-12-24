@@ -209,3 +209,10 @@ Started APL again. I had to jump quite a few hoops to avoid conditionals. ~⍣~ 
    )load day22.apl
    part1 "inputs/day22"
  #+end_src
+
+** Day 24
+GNU-APL has full complex number support which has reduced quite a headache I would've had trying to workout an algebra for hexagon tiles.
+
+I also used a pretty cunning trick to parse the input. It is wasteful w.r.t complexity but I tried just using primitives to do it.
+
+Part one is working, but there is some bug in my ~stepgame~.
